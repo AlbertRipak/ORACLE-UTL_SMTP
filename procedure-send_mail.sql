@@ -4,11 +4,11 @@ CREATE OR REPLACE PROCEDURE send_mail (
     msg_body    VARCHAR2)
 IS
     c UTL_SMTP.connection;
-    msg_from VARCHAR2(50) := '192.168.1.194'; -- ip address database server 
+    msg_from VARCHAR2(50) := '111.111.111.111'; -- ip address database server 
     msg_subject VARCHAR2(100) := 'Oracle Database (DBUP).'; 
-    mailhost    VARCHAR2(30) := 'post.test.com'; --domain address or ip address for post server
+    mailhost    VARCHAR2(30) := 'post.mail.com'; --domain address or ip address for post server
     mailport    INTEGER := 8080;
-    base64username VARCHAR2(30) := UTL_RAW.cast_to_varchar2(UTL_ENCODE.base64_encode(UTL_RAW.cast_to_raw('alerto.mail')));
+    base64username VARCHAR2(30) := UTL_RAW.cast_to_varchar2(UTL_ENCODE.base64_encode(UTL_RAW.cast_to_raw('alert.mail')));
     base64password VARCHAR2(30) := UTL_RAW.cast_to_varchar2(UTL_ENCODE.base64_encode(UTL_RAW.cast_to_raw('sldkjfldsjf435#$#@%$#')));
 BEGIN
     c  := UTL_SMTP.open_connection(mailhost, mailport);
